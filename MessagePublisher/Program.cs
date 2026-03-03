@@ -41,51 +41,17 @@ using var scope = app.Services.CreateScope();
 
 while (true)
 {
-    // AddressChangeDetected
-    await Publisher.PublishFromAsync(
-        scope,
-        messages.AddressChangeDetected.Topic,
-        fixture
-            .Create<AddressChangeDetected>());
 
-    // SubscribedToReclaim
-    // await Publisher.PublishFromAsync(scope, messages.SubscribedToReclaim.Topic, fixture.Create<SubscribedToReclaim>());
-
-    // // UserChangeDetected
-    // await Publisher.PublishFromAsync(
-    //     scope,
-    //     messages.UserChangeDetected.Topic,
-    //     fixture
-    //         .Build<UserChangeDetected>()
-    //         .With(x => x.ChangeType, ChangeType.Update)
-    //         .With(x => x.UserId, 9038231)
-    //         .With(x => x.PlanTypeIDs, [2097152])
-    //         .Create());
-
-    // EmployeeCreated
-    // await Publisher.PublishFromAsync(
-    //     scope,
-    //     messages.EmployeeCreated.Topic,
-    //     fixture
-    //         .Build<EmployeeCreated>()
-    //         .With(x => x.user_id, 2089326)
-    //         .With(x => x.client_id, 290)
-    //         .With(x => x.origin, EmployeeCreatedType.census_import)
-    //         .Create());
-
-    // ElectionChangeDetected
-    // await Publisher.PublishFromAsync(
-    //     scope,
-    //     messages.ElectionChanged.Topic,
-    //     fixture
-    //         .Build<ElectionChangeDetected>()
-    //         .With(x => x.UserId, 9038231)
-    //         .With(x => x.ParentUserId, 9038231)
-    //         .With(x => x.BenefitElectionId, 206481444)
-    //         .With(x => x.ChangeType, ChangeType.Update)
-    //         .With(x => x.IsExpanded, false)
-    //         .Create());
-
+    if (DateTime.Now.Second % 2 == 0)
+    {
+        // AddressChangeDetected
+        await Publisher.PublishFromAsync(scope, messages.AddressChangeDetected.Topic, fixture.Create<AddressChangeDetected>());
+    }
+    else
+    {
+        // SubscribedToReclaim
+        await Publisher.PublishFromAsync(scope, messages.SubscribedToReclaim.Topic, fixture.Create<SubscribedToReclaim>());
+    }
 
     Console.WriteLine("Produce new message? (y/n)");
     var key = Console.ReadKey();
