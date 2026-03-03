@@ -1,5 +1,5 @@
 # Overview
-This project is a demo of how to publish messages to Kafka using the `Wex.Libraries.Kafka` library.
+This project is a demo of how to publish and consume messages to and from Kafka using the `Wex.Libraries.Kafka` library.
 
 Prerequisites:
 - Topics, schemas and users created in Aiven

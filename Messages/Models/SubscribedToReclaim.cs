@@ -19,4 +19,7 @@ public record SubscribedToReclaim
 
     [DataMember(Name = "errors")]
     public string? errors { get; set; }
+
+    public override string ToString() =>
+        $"SubscribedToReclaim {{ ClientID: {client_id}, UserID: {user_id}, ReclaimBatchID: {reclaim_batch_id}, SuccessfullySubscribed: {successfully_subscribed}, Errors: {errors} }}";
 }

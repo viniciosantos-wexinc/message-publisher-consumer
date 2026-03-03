@@ -15,4 +15,7 @@ public record AddressChangeDetected
     [DataMember(Name = "change_type_description")]
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public ChangeType ChangeType { get; set; }
+
+    override public string ToString() =>
+        $"AddressChangeDetected {{ UserId: {UserId}, AddressID: {AddressID}, ChangeType: {ChangeType} }}";
 }
