@@ -1,11 +1,6 @@
 # Overview
 This project is a demo of how to publish and consume messages to and from Kafka using the `Wex.Libraries.Kafka` library.
 
-Prerequisites:
-- Topics, schemas and users created in Aiven
-- Kafka library `Wex.Libraries.Kafka` (version 8.4.0 or higher)
-- .NET 8.0 SDK
-
 ## Table of Contents
 - [Aiven](#aiven)
   - [Projects](#projects)
