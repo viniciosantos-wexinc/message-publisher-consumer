@@ -26,6 +26,7 @@ We created the schemas following the [Avro schema](https://avro.apache.org/docs/
 
 Below is an example of a schema for the `ElectionChangeDetected` message.
 The `name` and `namespace` can be any string the team prefer. For the `namespace` is recommended to use something related to the domain or business logic. Think of namespace as a way to group related schemas, similar to a package.
+
 Note that in the fields we have a variation of types, like `int`, `boolean` and `enum`. The `enum` is a way to define a set of possible values for a field. For `nullable` values we use an array with the first element as `null` and the second element as the type.
 
 ```json
@@ -179,10 +180,13 @@ Create an `appsettings.json` file with your Kafka configuration:
 
 **Note:** For local development, you can use `"SecurityProtocol": "PLAINTEXT"` and `"BootstrapServers": "localhost:9092"` if running Kafka locally.
 
-The `SchemaRegistry.Url` is found int the Aiven service page, in the `Connection information` section.
+The `BootstrapServers` is found int the Aiven service page, in the `Connection information` section and Appache Kafka tab.
+
+![Bootstrap URL](docs/images/bootstrap-url.png)
+
+The `SchemaRegistry.Url` is found int the Aiven service page, in the `Connection information` section and Schema Registry tab.
 
 ![Schema Registry URL](docs/images/registry-url.png)
-
 ## Usage
 
 ### 1. Register Kafka Services
